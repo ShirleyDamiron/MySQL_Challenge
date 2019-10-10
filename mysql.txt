@@ -1,0 +1,153 @@
+VERY EASY:
+
+CREATE DATABASE Dealership;
+DROP DATABASE IF EXISTS Dealership;
+
+USE Dealership;
+
+CREATE TABLE Cars (
+	Cars_Id INT NOT NULL AUTO_INCREMENT,
+	Make VARCHAR(255),
+	Model VARCHAR(255),
+	Years INT,
+	PRIMARY KEY (Cars_Id) 
+    );
+
+INSERT INTO Cars(Make, Model, Year)
+Values      (’Toyota’, ‘Corolla’, 2018),
+	    (‘Chevrolet’, ‘Camaro’, 2018),
+	    (’Toyota’, ‘Camry, 2019);
+
+INSERT INTO Cars(Make, Model, Year)
+Values      (’Mercedes’, ‘G-Wagon, 2017),
+	    (‘Nissan’, ‘GTR’, 2019);
+
+EASY:
+ 
+CREATE DATABASE BookStore;
+DROP DATABASE IF EXISTS Books;
+USE Bookstore;
+
+CREATE TABLE Books(
+	 Books_Id INT NOT NULL AUTO_INCREMENT
+	 Title VARCHAR(255),
+	 Publish_Date DATE,
+	 Author_Firstname VARCHAR(255), 
+	 Author_Lastname VARCHAR(255), 
+	 Price INT
+);
+
+INSERT INTO Books(Title, Publish_Date, Author_Firstname, Author_Lastname, Price)
+Values (’The Notebook’, 1996, ’Nicholas’, ’Sparks’, 3.72),
+	    (’The Choice’, 2007, ‘’Nicholas, ’Sparks’, 4.99),
+	    (’Safe Haven’, 2010, ’Nicholas’, ’Sparks’, 12.00),
+            (’The Best of Me’, 2015, ’Nicholas’, ’Sparks’, 7.99),
+            (’The Longest Ride’, 2013, ’Nicholas’, ’Sparks’, 6.40);
+
+INSERT INTO Books(Title, Publish_Date, Author_Firstname, Author_Lastname, Price)
+Values (’Dear John’, 2006, ’Nicholas’, ’Sparks’, 4.95),
+	    (’The Last Song’, 2009, ‘’Nicholas, ’Sparks’, 7.99);
+
+DELETE FROM Books WHERE  ‘Publish_Date’ = 1996;
+
+SELECT SUM(Price)
+FROM Books;
+
+
+MEDIUM:
+
+
+CREATE DATABASE Movies;
+DROP DATABASE IF EXISTS Movies;
+USE Movies;
+
+CREATE TABLE Top_Movies(
+	Movies_Id INT NOT NULL AUTO_INCREMENT
+	Title VARCHAR(255),
+ 	Release_Date DATE,
+ 	IMDb_Rating INT,
+	Director_Firstname VARCHAR(255),
+	Director_Lastnname VARCHAR(255)
+);
+
+INSERT INTO Top_Movies(Title, Release_Date, IMDb_Rating)
+Values      (’What Happened To Monday’, ’2017/08/30’, 6.9/10),
+	    (’Collateral Beauty’, ’2018/12/16’, 6.8/10 ),
+	    (’Deep Blue Sea’, ’1999/07/28’, 5.8/10 ),
+	    (’Into The Blue’, ’2005/09/30’, 5.8/10 ),
+	    (’Peter Pan’, ’2003/12/13’, 6.8/10 ),
+	    (’The Cat in the Hat’, ’2003/11/08’, 3.9/10 ),
+	    (’G.I Joe: The Rise of Cobra’, ’2009/08/07’, 5.8/10 ),
+	    (’Norbit’, ’2007/02/09’, 4/10 ),
+	    (’The Fifth Element’, ’1997/05/09’, 7.7/10 ),
+	    (’Inception, ’2010/07/13’, 8.8/10 );
+
+
+SELECT *
+FROM Top_Movies
+ORDER BY Release_Date
+WHERE Title LIKE ’s%’;
+
+
+
+
+HARD:
+
+
+INSERT INTO Top_Movies(Director_Firstname, Director_Lastname)
+Values.    (‘Tommy’, ‘Wirkola’),
+	   (‘David’, ‘Frankel’),
+	   (‘Renny’, ‘Harlin’),
+	   (‘John’, ‘Stockwell’),
+	   (‘P.J’, ‘Hogan’),
+	   (‘Bo’, ‘Welch’),
+	   (‘Stephen’, ‘Sommers’),
+	   (‘Brian’, ‘Robbins’),
+	   (‘Luc’, ‘Besson’),
+	   (‘Christopher, ‘Nolan’);
+
+
+SELECT Director_Firstname + Director_Lastname AS Director_Name
+FROM Top_Movies;
+
+
+SELECT * FROM Top_Movies ORDER BY Director_Lastname;
+
+SELECT *  SUBSTRING (Director_Lastname, -1) >= ‘r’ FROM Top_Movies;
+
+DELETE FROM Top_Movies WHERE SUBSTRING (Director_Lastname, -1) >= ‘r’ ;
+
+
+
+
+ VERY HARD:
+
+
+INSERT INTO Cars(Make, Model, Year)
+Values      (’Toyota, ‘Camry’, 2007),
+	    (‘Hyundai’, ‘Elantra, 1999),
+	    (’Ford, ‘Fusion, 2013);
+
+
+
+
+INSERT INTO Cars(Price, Color)
+VALUES         (12,000.00, ‘Blue’)
+	       (18,000.99, ‘Space Gray’)
+	       (12,450.00, ‘Red’)
+	       (12,000.89, ‘Lavender’)
+	       (13,000.00, ‘Black’)
+	       (28,320.35, ‘White’)
+	       (121,000.00, ‘Silver’)
+               (12,330.99, ‘Mint Green’);
+
+
+SELECT Make + Model AS Cars-Made
+FROM Cars;
+
+
+
+
+SELECT *
+FROM Cars
+WHERE col1 NOT LIKE CONCAT('%', col6, '%');
